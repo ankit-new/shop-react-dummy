@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { logout } from "../features/authSlice";
 import { signOut } from "firebase/auth";
 import { auth } from "../Auth/firebase";
-
+import { clearCart } from "../features/cartSlice";
 
 export const Navbar = () => {
   const cart = useSelector((state) => state.cart.items);
@@ -40,7 +40,7 @@ export const Navbar = () => {
         </NavLink>
 
         <button
-          className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg ml-auto md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           onClick={toggleMenu}
         >
           <svg
@@ -85,7 +85,7 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* Desktop Menu */}
+    
         <div
           className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
           id="navbar-search"
@@ -145,7 +145,7 @@ export const Navbar = () => {
           </ul>
         </div>
 
-        {/* Mobile Menu */}
+       
         {isMenuOpen && (
           <div className="md:hidden w-full">
             <ul className="flex flex-col p-4 mt-4 space-y-2 font-medium bg-gray-50 rounded-lg dark:bg-gray-800">
@@ -210,7 +210,7 @@ export const Footer = () => {
     <footer>
       <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-        <span className="block text-center text-sm text-gray-500 sm:text-center dark:text-gray-400">
+        <span className="block text-sm text-gray-500 sm:text-center dark:text-gray-400">
           © 2024{" "}
           <a href="#" className="hover:underline">
             Store React
